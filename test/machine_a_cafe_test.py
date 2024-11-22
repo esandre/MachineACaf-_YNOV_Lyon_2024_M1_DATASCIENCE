@@ -24,15 +24,14 @@ class MyTestCase(unittest.TestCase):
 
     def test_sans_detection_cb(self):
         # ETANT DONNE une machine a café
-        brewer = BrewerSpy()
         machine_a_cafe = (MachineACaféBuilder()
-                          .ayant_pour_brewer(brewer)
+                          .surveillant_le_brewer()
                           .build())
 
         # QUAND aucune carte n'est détectée
 
         # ALORS aucun café n'est commandé au hardware
-        self.assertFalse(brewer.make_a_coffee_appelé())
+        self.assertFalse(machine_a_cafe.make_a_coffee_appelé())
 
 
 if __name__ == '__main__':
